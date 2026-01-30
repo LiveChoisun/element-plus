@@ -1,5 +1,5 @@
 import { placements } from '@popperjs/core';
-import { avatarProps } from './avatar2.mjs';
+import { avatarProps } from './avatar.mjs';
 import { buildProps, definePropType } from '../../../utils/vue/props/runtime.mjs';
 import { useTooltipContentProps } from '../../tooltip/src/content2.mjs';
 

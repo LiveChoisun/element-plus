@@ -1,6 +1,6 @@
 import { defineComponent, inject, computed, resolveComponent, openBlock, createElementBlock, Fragment, normalizeClass, createCommentVNode, createElementVNode, mergeProps, withModifiers, createBlock, withCtx, renderSlot, resolveDynamicComponent } from 'vue';
 import { ElIcon } from '../../icon/index.mjs';
-import { dropdownItemProps } from './dropdown.mjs';
+import { dropdownItemProps } from './dropdown2.mjs';
 import { DROPDOWN_INJECTION_KEY } from './tokens.mjs';
 import _export_sfc from '../../../_virtual/plugin-vue_export-helper.mjs';
 import { ROVING_FOCUS_ITEM_COLLECTION_INJECTION_KEY as COLLECTION_ITEM_INJECTION_KEY } from '../../roving-focus-group/src/roving-focus-group2.mjs';

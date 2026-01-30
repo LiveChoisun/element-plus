@@ -1,7 +1,7 @@
 import dayjs from 'dayjs';
 declare var __VLS_1: {
     class: string;
-}, __VLS_30: {}, __VLS_42: {}, __VLS_54: {}, __VLS_66: {};
+}, __VLS_30: {}, __VLS_42: {}, __VLS_54: {}, __VLS_66: {}, __VLS_121: {};
 type __VLS_Slots = {} & {
     sidebar?: (props: typeof __VLS_1) => any;
 } & {
@@ -12,6 +12,8 @@ type __VLS_Slots = {} & {
     'next-month'?: (props: typeof __VLS_54) => any;
 } & {
     'next-year'?: (props: typeof __VLS_66) => any;
+} & {
+    'dyb-footer-extra'?: (props: typeof __VLS_121) => any;
 };
 declare const __VLS_base: import("vue").DefineComponent<{
     readonly parsedValue: {

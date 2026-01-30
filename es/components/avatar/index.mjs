@@ -1,6 +1,6 @@
-import Avatar from './src/avatar.mjs';
+import Avatar from './src/avatar2.mjs';
 import AvatarGroup from './src/avatar-group.mjs';
-export { avatarEmits, avatarProps } from './src/avatar2.mjs';
+export { avatarEmits, avatarProps } from './src/avatar.mjs';
 export { avatarGroupContextKey } from './src/constants.mjs';
 export { avatarGroupProps } from './src/avatar-group-props.mjs';
 import { withInstall, withNoopInstall } from '../../utils/vue/install.mjs';

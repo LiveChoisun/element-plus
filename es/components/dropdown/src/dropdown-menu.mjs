@@ -1,6 +1,6 @@
 import { defineComponent, inject, computed, openBlock, createElementBlock, normalizeClass, normalizeStyle, withModifiers, renderSlot } from 'vue';
 import { DROPDOWN_INJECTION_KEY } from './tokens.mjs';
-import { dropdownMenuProps } from './dropdown.mjs';
+import { dropdownMenuProps } from './dropdown2.mjs';
 import { useDropdown } from './useDropdown.mjs';
 import _export_sfc from '../../../_virtual/plugin-vue_export-helper.mjs';
 import { ROVING_FOCUS_GROUP_INJECTION_KEY } from '../../roving-focus-group/src/tokens.mjs';

@@ -1,6 +1,6 @@
-import Anchor from './src/anchor2.mjs';
-import AnchorLink from './src/anchor-link2.mjs';
-export { anchorEmits, anchorProps } from './src/anchor.mjs';
+import Anchor from './src/anchor.mjs';
+import AnchorLink from './src/anchor-link.mjs';
+export { anchorEmits, anchorProps } from './src/anchor2.mjs';
 import { withInstall, withNoopInstall } from '../../utils/vue/install.mjs';
 
 const ElAnchor = withInstall(Anchor, {

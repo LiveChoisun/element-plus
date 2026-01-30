@@ -1,13 +1,45 @@
-import { buildProps, definePropType } from '../../../utils/vue/props/runtime.mjs';
+import { defineComponent, computed, openBlock, createElementBlock, mergeProps, unref, renderSlot } from 'vue';
+import { iconProps } from './icon2.mjs';
+import _export_sfc from '../../../_virtual/plugin-vue_export-helper.mjs';
+import { useNamespace } from '../../../hooks/use-namespace/index.mjs';
+import { addUnit } from '../../../utils/dom/style.mjs';
 
-const iconProps = buildProps({
-  size: {
-    type: definePropType([Number, String])
+const _sfc_main = defineComponent({
+  ...{
+    name: "ElIcon",
+    inheritAttrs: false
   },
-  color: {
-    type: String
+  __name: "icon",
+  props: iconProps,
+  setup(__props) {
+    const props = __props;
+    const ns = useNamespace("icon");
+    const style = computed(() => {
+      const { size, color } = props;
+      const fontSize = addUnit(size);
+      if (!fontSize && !color)
+        return {};
+      return {
+        fontSize,
+        "--color": color
+      };
+    });
+    return (_ctx, _cache) => {
+      return openBlock(), createElementBlock(
+        "i",
+        mergeProps({
+          class: unref(ns).b(),
+          style: style.value
+        }, _ctx.$attrs),
+        [
+          renderSlot(_ctx.$slots, "default")
+        ],
+        16
+      );
+    };
   }
 });
+var Icon = /* @__PURE__ */ _export_sfc(_sfc_main, [["__file", "C:\\workspace-etc\\element-plus\\packages\\components\\icon\\src\\icon.vue"]]);
 
-export { iconProps };
+export { Icon as default };
 //# sourceMappingURL=icon.mjs.map

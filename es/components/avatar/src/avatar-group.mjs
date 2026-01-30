@@ -1,6 +1,6 @@
 import { defineComponent, provide, reactive, toRef, createVNode, createTextVNode, isVNode, cloneVNode } from 'vue';
 import { ElTooltip } from '../../tooltip/index.mjs';
-import Avatar from './avatar.mjs';
+import Avatar from './avatar2.mjs';
 import { avatarGroupContextKey } from './constants.mjs';
 import { avatarGroupProps } from './avatar-group-props.mjs';
 import { useNamespace } from '../../../hooks/use-namespace/index.mjs';

@@ -1,7 +1,7 @@
-import Dropdown from './src/dropdown2.mjs';
+import Dropdown from './src/dropdown.mjs';
 import DropdownItem from './src/dropdown-item.mjs';
 import DropdownMenu from './src/dropdown-menu.mjs';
-export { FIRST_KEYS, FIRST_LAST_KEYS, LAST_KEYS, dropdownItemProps, dropdownMenuProps, dropdownProps } from './src/dropdown.mjs';
+export { FIRST_KEYS, FIRST_LAST_KEYS, LAST_KEYS, dropdownItemProps, dropdownMenuProps, dropdownProps } from './src/dropdown2.mjs';
 export { DROPDOWN_INJECTION_KEY, DROPDOWN_INSTANCE_INJECTION_KEY } from './src/tokens.mjs';
 import { withInstall, withNoopInstall } from '../../utils/vue/install.mjs';
 

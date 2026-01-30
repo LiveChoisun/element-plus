@@ -146,6 +146,29 @@ And thank you to all our backers! 🙏
   <img src="https://contrib.rocks/image?repo=element-plus/element-plus" />
 </a>
 
+## DYB Fork - Installation
+
+This is a forked version for DYB projects. Install from GitHub:
+
+```bash
+# Latest version (recommended)
+pnpm add github:LiveChoisun/element-plus#latest
+
+# Specific version
+pnpm add github:LiveChoisun/element-plus#v0.0.1
+```
+
+Or in package.json:
+```json
+{
+  "dependencies": {
+    "element-plus": "github:LiveChoisun/element-plus#latest"
+  }
+}
+```
+
+See [DYB Changelog](./docs/DYB-changelog.md) for version history.
+
 ## License
 
 Element Plus is open source software licensed as

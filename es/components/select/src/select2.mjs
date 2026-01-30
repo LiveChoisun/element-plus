@@ -2,7 +2,7 @@ import { placements } from '@popperjs/core';
 import { CircleClose, ArrowDown } from '@element-plus/icons-vue';
 import { defaultProps } from '../../select-v2/src/useProps.mjs';
 import { tagProps } from '../../tag/src/tag2.mjs';
-import { scrollbarEmits } from '../../scrollbar/src/scrollbar.mjs';
+import { scrollbarEmits } from '../../scrollbar/src/scrollbar2.mjs';
 import { buildProps, definePropType } from '../../../utils/vue/props/runtime.mjs';
 import { useSizeProp } from '../../../hooks/use-size/index.mjs';
 import { useTooltipContentProps } from '../../tooltip/src/content2.mjs';

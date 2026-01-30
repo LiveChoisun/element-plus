@@ -40,6 +40,12 @@
     font-size: 0;
   }
 
+  .dyb-picker-panel__footer-extra {
+    border-top: 1px solid getCssVar('datepicker-inner-border-color');
+    padding: 8px 12px;
+    background-color: getCssVar('datepicker', 'bg-color');
+  }
+
   @include e(shortcut) {
     display: block;
     width: 100%;

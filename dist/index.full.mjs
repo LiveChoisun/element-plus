@@ -26978,7 +26978,7 @@ const _hoisted_2$z = ["aria-label"];
 const _hoisted_3$g = ["onMouseenter", "onClick"];
 const _hoisted_4$c = ["aria-label"];
 const _hoisted_5$9 = { key: 0 };
-const _hoisted_6$4 = {
+const _hoisted_6$6 = {
   key: 2,
   xmlns: "http://www.w3.org/2000/svg",
   version: "1.1",
@@ -27192,7 +27192,7 @@ const _sfc_main$1U = defineComponent({
             ]),
             _: 1
           }),
-          _ctx.motionBlur ? (openBlock(), createElementBlock("svg", _hoisted_6$4, [..._cache[8] || (_cache[8] = [
+          _ctx.motionBlur ? (openBlock(), createElementBlock("svg", _hoisted_6$6, [..._cache[8] || (_cache[8] = [
             createElementVNode(
               "defs",
               null,
@@ -34189,8 +34189,12 @@ const _hoisted_2$t = ["aria-label", "disabled"];
 const _hoisted_3$e = ["aria-label", "disabled"];
 const _hoisted_4$b = ["tabindex", "aria-disabled"];
 const _hoisted_5$8 = ["tabindex", "aria-disabled"];
-const _hoisted_6$3 = ["aria-label", "disabled"];
+const _hoisted_6$5 = ["aria-label", "disabled"];
 const _hoisted_7$2 = ["aria-label", "disabled"];
+const _hoisted_8$2 = {
+  key: 1,
+  class: "dyb-picker-panel__footer-extra"
+};
 const _sfc_main$1o = defineComponent({
   __name: "panel-date-pick",
   props: panelDatePickProps,
@@ -34868,7 +34872,7 @@ const _sfc_main$1o = defineComponent({
                                 _: 1
                               })
                             ])
-                          ], 10, _hoisted_6$3), [
+                          ], 10, _hoisted_6$5), [
                             [vShow, currentView.value === "date"]
                           ]),
                           createElementVNode("button", {
@@ -34990,7 +34994,10 @@ const _sfc_main$1o = defineComponent({
               }, 8, ["class", "disabled"])) : createCommentVNode("v-if", true)
             ],
             2
-          )) : createCommentVNode("v-if", true)
+          )) : createCommentVNode("v-if", true),
+          _ctx.$slots["dyb-footer-extra"] ? (openBlock(), createElementBlock("div", _hoisted_8$2, [
+            renderSlot(_ctx.$slots, "dyb-footer-extra")
+          ])) : createCommentVNode("v-if", true)
         ],
         2
       );
@@ -35260,7 +35267,7 @@ const _hoisted_2$s = ["aria-label", "disabled"];
 const _hoisted_3$d = ["aria-label", "disabled"];
 const _hoisted_4$a = ["disabled", "aria-label"];
 const _hoisted_5$7 = ["disabled", "aria-label"];
-const _hoisted_6$2 = ["tabindex", "aria-disabled"];
+const _hoisted_6$4 = ["tabindex", "aria-disabled"];
 const _hoisted_7$1 = ["tabindex", "aria-disabled"];
 const _hoisted_8$1 = ["disabled", "aria-label"];
 const _hoisted_9$1 = ["disabled", "aria-label"];
@@ -35268,6 +35275,10 @@ const _hoisted_10$1 = ["aria-label", "disabled"];
 const _hoisted_11$1 = ["disabled", "aria-label"];
 const _hoisted_12$1 = ["tabindex", "aria-disabled"];
 const _hoisted_13$1 = ["tabindex", "aria-disabled"];
+const _hoisted_14$1 = {
+  key: 1,
+  class: "dyb-picker-panel__footer-extra"
+};
 const unit$2 = "month";
 const _sfc_main$1n = defineComponent({
   __name: "panel-date-range",
@@ -35927,7 +35938,7 @@ const _sfc_main$1n = defineComponent({
                               "aria-disabled": _ctx.disabled,
                               onKeydown: _cache[10] || (_cache[10] = withKeys(($event) => unref(showLeftPicker)("year"), ["enter"])),
                               onClick: _cache[11] || (_cache[11] = ($event) => unref(showLeftPicker)("year"))
-                            }, toDisplayString(unref(leftYearLabel)), 43, _hoisted_6$2),
+                            }, toDisplayString(unref(leftYearLabel)), 43, _hoisted_6$4),
                             withDirectives(createElementVNode("span", {
                               role: "button",
                               "aria-live": "polite",
@@ -36184,7 +36195,10 @@ const _sfc_main$1n = defineComponent({
               }, 8, ["class", "disabled"])) : createCommentVNode("v-if", true)
             ],
             2
-          )) : createCommentVNode("v-if", true)
+          )) : createCommentVNode("v-if", true),
+          _ctx.$slots["dyb-footer-extra"] ? (openBlock(), createElementBlock("div", _hoisted_14$1, [
+            renderSlot(_ctx.$slots, "dyb-footer-extra")
+          ])) : createCommentVNode("v-if", true)
         ],
         2
       );
@@ -36255,6 +36269,10 @@ const _hoisted_2$r = ["disabled"];
 const _hoisted_3$c = ["disabled"];
 const _hoisted_4$9 = ["disabled"];
 const _hoisted_5$6 = ["disabled"];
+const _hoisted_6$3 = {
+  key: 0,
+  class: "dyb-picker-panel__footer-extra"
+};
 const unit$1 = "year";
 const _sfc_main$1m = defineComponent({
   ...{
@@ -36570,7 +36588,10 @@ const _sfc_main$1m = defineComponent({
               )
             ],
             2
-          )
+          ),
+          _ctx.$slots["dyb-footer-extra"] ? (openBlock(), createElementBlock("div", _hoisted_6$3, [
+            renderSlot(_ctx.$slots, "dyb-footer-extra")
+          ])) : createCommentVNode("v-if", true)
         ],
         2
       );
@@ -36644,6 +36665,10 @@ const _hoisted_2$q = ["disabled"];
 const _hoisted_3$b = ["disabled"];
 const _hoisted_4$8 = ["disabled"];
 const _hoisted_5$5 = ["disabled"];
+const _hoisted_6$2 = {
+  key: 0,
+  class: "dyb-picker-panel__footer-extra"
+};
 const step = 10;
 const unit = "year";
 const _sfc_main$1l = defineComponent({
@@ -36983,7 +37008,10 @@ const _sfc_main$1l = defineComponent({
               )
             ],
             2
-          )
+          ),
+          _ctx.$slots["dyb-footer-extra"] ? (openBlock(), createElementBlock("div", _hoisted_6$2, [
+            renderSlot(_ctx.$slots, "dyb-footer-extra")
+          ])) : createCommentVNode("v-if", true)
         ],
         2
       );

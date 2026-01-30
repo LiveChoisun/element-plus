@@ -34,6 +34,10 @@ const _hoisted_10 = ["aria-label", "disabled"];
 const _hoisted_11 = ["disabled", "aria-label"];
 const _hoisted_12 = ["tabindex", "aria-disabled"];
 const _hoisted_13 = ["tabindex", "aria-disabled"];
+const _hoisted_14 = {
+  key: 1,
+  class: "dyb-picker-panel__footer-extra"
+};
 const unit = "month";
 const _sfc_main = defineComponent({
   __name: "panel-date-range",
@@ -950,7 +954,10 @@ const _sfc_main = defineComponent({
               }, 8, ["class", "disabled"])) : createCommentVNode("v-if", true)
             ],
             2
-          )) : createCommentVNode("v-if", true)
+          )) : createCommentVNode("v-if", true),
+          _ctx.$slots["dyb-footer-extra"] ? (openBlock(), createElementBlock("div", _hoisted_14, [
+            renderSlot(_ctx.$slots, "dyb-footer-extra")
+          ])) : createCommentVNode("v-if", true)
         ],
         2
       );

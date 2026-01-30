@@ -26982,7 +26982,7 @@
   const _hoisted_3$g = ["onMouseenter", "onClick"];
   const _hoisted_4$c = ["aria-label"];
   const _hoisted_5$9 = { key: 0 };
-  const _hoisted_6$4 = {
+  const _hoisted_6$6 = {
     key: 2,
     xmlns: "http://www.w3.org/2000/svg",
     version: "1.1",
@@ -27196,7 +27196,7 @@
               ]),
               _: 1
             }),
-            _ctx.motionBlur ? (vue.openBlock(), vue.createElementBlock("svg", _hoisted_6$4, [..._cache[8] || (_cache[8] = [
+            _ctx.motionBlur ? (vue.openBlock(), vue.createElementBlock("svg", _hoisted_6$6, [..._cache[8] || (_cache[8] = [
               vue.createElementVNode(
                 "defs",
                 null,
@@ -34193,8 +34193,12 @@
   const _hoisted_3$e = ["aria-label", "disabled"];
   const _hoisted_4$b = ["tabindex", "aria-disabled"];
   const _hoisted_5$8 = ["tabindex", "aria-disabled"];
-  const _hoisted_6$3 = ["aria-label", "disabled"];
+  const _hoisted_6$5 = ["aria-label", "disabled"];
   const _hoisted_7$2 = ["aria-label", "disabled"];
+  const _hoisted_8$2 = {
+    key: 1,
+    class: "dyb-picker-panel__footer-extra"
+  };
   const _sfc_main$1o = vue.defineComponent({
     __name: "panel-date-pick",
     props: panelDatePickProps,
@@ -34872,7 +34876,7 @@
                                   _: 1
                                 })
                               ])
-                            ], 10, _hoisted_6$3), [
+                            ], 10, _hoisted_6$5), [
                               [vue.vShow, currentView.value === "date"]
                             ]),
                             vue.createElementVNode("button", {
@@ -34994,7 +34998,10 @@
                 }, 8, ["class", "disabled"])) : vue.createCommentVNode("v-if", true)
               ],
               2
-            )) : vue.createCommentVNode("v-if", true)
+            )) : vue.createCommentVNode("v-if", true),
+            _ctx.$slots["dyb-footer-extra"] ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_8$2, [
+              vue.renderSlot(_ctx.$slots, "dyb-footer-extra")
+            ])) : vue.createCommentVNode("v-if", true)
           ],
           2
         );
@@ -35264,7 +35271,7 @@
   const _hoisted_3$d = ["aria-label", "disabled"];
   const _hoisted_4$a = ["disabled", "aria-label"];
   const _hoisted_5$7 = ["disabled", "aria-label"];
-  const _hoisted_6$2 = ["tabindex", "aria-disabled"];
+  const _hoisted_6$4 = ["tabindex", "aria-disabled"];
   const _hoisted_7$1 = ["tabindex", "aria-disabled"];
   const _hoisted_8$1 = ["disabled", "aria-label"];
   const _hoisted_9$1 = ["disabled", "aria-label"];
@@ -35272,6 +35279,10 @@
   const _hoisted_11$1 = ["disabled", "aria-label"];
   const _hoisted_12$1 = ["tabindex", "aria-disabled"];
   const _hoisted_13$1 = ["tabindex", "aria-disabled"];
+  const _hoisted_14$1 = {
+    key: 1,
+    class: "dyb-picker-panel__footer-extra"
+  };
   const unit$2 = "month";
   const _sfc_main$1n = vue.defineComponent({
     __name: "panel-date-range",
@@ -35931,7 +35942,7 @@
                                 "aria-disabled": _ctx.disabled,
                                 onKeydown: _cache[10] || (_cache[10] = vue.withKeys(($event) => vue.unref(showLeftPicker)("year"), ["enter"])),
                                 onClick: _cache[11] || (_cache[11] = ($event) => vue.unref(showLeftPicker)("year"))
-                              }, vue.toDisplayString(vue.unref(leftYearLabel)), 43, _hoisted_6$2),
+                              }, vue.toDisplayString(vue.unref(leftYearLabel)), 43, _hoisted_6$4),
                               vue.withDirectives(vue.createElementVNode("span", {
                                 role: "button",
                                 "aria-live": "polite",
@@ -36188,7 +36199,10 @@
                 }, 8, ["class", "disabled"])) : vue.createCommentVNode("v-if", true)
               ],
               2
-            )) : vue.createCommentVNode("v-if", true)
+            )) : vue.createCommentVNode("v-if", true),
+            _ctx.$slots["dyb-footer-extra"] ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_14$1, [
+              vue.renderSlot(_ctx.$slots, "dyb-footer-extra")
+            ])) : vue.createCommentVNode("v-if", true)
           ],
           2
         );
@@ -36259,6 +36273,10 @@
   const _hoisted_3$c = ["disabled"];
   const _hoisted_4$9 = ["disabled"];
   const _hoisted_5$6 = ["disabled"];
+  const _hoisted_6$3 = {
+    key: 0,
+    class: "dyb-picker-panel__footer-extra"
+  };
   const unit$1 = "year";
   const _sfc_main$1m = vue.defineComponent({
     ...{
@@ -36574,7 +36592,10 @@
                 )
               ],
               2
-            )
+            ),
+            _ctx.$slots["dyb-footer-extra"] ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_6$3, [
+              vue.renderSlot(_ctx.$slots, "dyb-footer-extra")
+            ])) : vue.createCommentVNode("v-if", true)
           ],
           2
         );
@@ -36648,6 +36669,10 @@
   const _hoisted_3$b = ["disabled"];
   const _hoisted_4$8 = ["disabled"];
   const _hoisted_5$5 = ["disabled"];
+  const _hoisted_6$2 = {
+    key: 0,
+    class: "dyb-picker-panel__footer-extra"
+  };
   const step = 10;
   const unit = "year";
   const _sfc_main$1l = vue.defineComponent({
@@ -36987,7 +37012,10 @@
                 )
               ],
               2
-            )
+            ),
+            _ctx.$slots["dyb-footer-extra"] ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_6$2, [
+              vue.renderSlot(_ctx.$slots, "dyb-footer-extra")
+            ])) : vue.createCommentVNode("v-if", true)
           ],
           2
         );

@@ -174,6 +174,8 @@ export declare const getPanel: (type: DatePickerType) => ({
         'next-month'?: (props: {}) => any;
     } & {
         'next-year'?: (props: {}) => any;
+    } & {
+        'dyb-footer-extra'?: (props: {}) => any;
     };
 })) | ({
     new (...args: any[]): import("vue").CreateComponentPublicInstance<Readonly<import("vue").ExtractPropTypes<{
@@ -370,6 +372,8 @@ export declare const getPanel: (type: DatePickerType) => ({
         'next-year'?: (props: {}) => any;
     } & {
         'next-month'?: (props: {}) => any;
+    } & {
+        'dyb-footer-extra'?: (props: {}) => any;
     };
 })) | ({
     new (...args: any[]): import("vue").CreateComponentPublicInstance<Readonly<import("vue").ExtractPropTypes<{
@@ -473,5 +477,7 @@ export declare const getPanel: (type: DatePickerType) => ({
         'prev-year'?: (props: {}) => any;
     } & {
         'next-year'?: (props: {}) => any;
+    } & {
+        'dyb-footer-extra'?: (props: {}) => any;
     };
 }));

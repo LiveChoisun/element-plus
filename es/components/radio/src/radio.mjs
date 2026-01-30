@@ -1,40 +1,104 @@
-import { buildProps } from '../../../utils/vue/props/runtime.mjs';
-import { useSizeProp } from '../../../hooks/use-size/index.mjs';
-import { UPDATE_MODEL_EVENT, CHANGE_EVENT } from '../../../constants/event.mjs';
-import { isString } from '@vue/shared';
-import { isNumber, isBoolean } from '../../../utils/types.mjs';
+import { defineComponent, openBlock, createElementBlock, normalizeClass, unref, createElementVNode, withDirectives, isRef, withModifiers, vModelRadio, renderSlot, createTextVNode, toDisplayString, nextTick } from 'vue';
+import { radioProps, radioEmits } from './radio2.mjs';
+import { useRadio } from './use-radio.mjs';
+import _export_sfc from '../../../_virtual/plugin-vue_export-helper.mjs';
+import { useNamespace } from '../../../hooks/use-namespace/index.mjs';
+import { CHANGE_EVENT } from '../../../constants/event.mjs';
 
-const radioPropsBase = buildProps({
-  modelValue: {
-    type: [String, Number, Boolean],
-    default: void 0
+const _hoisted_1 = ["value", "name", "disabled", "checked"];
+const _sfc_main = defineComponent({
+  ...{
+    name: "ElRadio"
   },
-  size: useSizeProp,
-  disabled: {
-    type: Boolean,
-    default: void 0
-  },
-  label: {
-    type: [String, Number, Boolean],
-    default: void 0
-  },
-  value: {
-    type: [String, Number, Boolean],
-    default: void 0
-  },
-  name: {
-    type: String,
-    default: void 0
+  __name: "radio",
+  props: radioProps,
+  emits: radioEmits,
+  setup(__props, { emit: __emit }) {
+    const props = __props;
+    const emit = __emit;
+    const ns = useNamespace("radio");
+    const { radioRef, radioGroup, focus, size, disabled, modelValue, actualValue } = useRadio(props, emit);
+    function handleChange() {
+      nextTick(() => emit(CHANGE_EVENT, modelValue.value));
+    }
+    return (_ctx, _cache) => {
+      var _a;
+      return openBlock(), createElementBlock(
+        "label",
+        {
+          class: normalizeClass([
+            unref(ns).b(),
+            unref(ns).is("disabled", unref(disabled)),
+            unref(ns).is("focus", unref(focus)),
+            unref(ns).is("bordered", _ctx.border),
+            unref(ns).is("checked", unref(modelValue) === unref(actualValue)),
+            unref(ns).m(unref(size))
+          ])
+        },
+        [
+          createElementVNode(
+            "span",
+            {
+              class: normalizeClass([
+                unref(ns).e("input"),
+                unref(ns).is("disabled", unref(disabled)),
+                unref(ns).is("checked", unref(modelValue) === unref(actualValue))
+              ])
+            },
+            [
+              withDirectives(createElementVNode("input", {
+                ref_key: "radioRef",
+                ref: radioRef,
+                "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => isRef(modelValue) ? modelValue.value = $event : null),
+                class: normalizeClass(unref(ns).e("original")),
+                value: unref(actualValue),
+                name: _ctx.name || ((_a = unref(radioGroup)) == null ? void 0 : _a.name),
+                disabled: unref(disabled),
+                checked: unref(modelValue) === unref(actualValue),
+                type: "radio",
+                onFocus: _cache[1] || (_cache[1] = ($event) => focus.value = true),
+                onBlur: _cache[2] || (_cache[2] = ($event) => focus.value = false),
+                onChange: handleChange,
+                onClick: _cache[3] || (_cache[3] = withModifiers(() => {
+                }, ["stop"]))
+              }, null, 42, _hoisted_1), [
+                [vModelRadio, unref(modelValue)]
+              ]),
+              createElementVNode(
+                "span",
+                {
+                  class: normalizeClass(unref(ns).e("inner"))
+                },
+                null,
+                2
+              )
+            ],
+            2
+          ),
+          createElementVNode(
+            "span",
+            {
+              class: normalizeClass(unref(ns).e("label")),
+              onKeydown: _cache[4] || (_cache[4] = withModifiers(() => {
+              }, ["stop"]))
+            },
+            [
+              renderSlot(_ctx.$slots, "default", {}, () => [
+                createTextVNode(
+                  toDisplayString(_ctx.label),
+                  1
+                )
+              ])
+            ],
+            34
+          )
+        ],
+        2
+      );
+    };
   }
 });
-const radioProps = buildProps({
-  ...radioPropsBase,
-  border: Boolean
-});
-const radioEmits = {
-  [UPDATE_MODEL_EVENT]: (val) => isString(val) || isNumber(val) || isBoolean(val),
-  [CHANGE_EVENT]: (val) => isString(val) || isNumber(val) || isBoolean(val)
-};
+var Radio = /* @__PURE__ */ _export_sfc(_sfc_main, [["__file", "C:\\workspace-etc\\element-plus\\packages\\components\\radio\\src\\radio.vue"]]);
 
-export { radioEmits, radioProps, radioPropsBase };
+export { Radio as default };
 //# sourceMappingURL=radio.mjs.map

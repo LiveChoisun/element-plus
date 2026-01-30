@@ -18,6 +18,10 @@ const _hoisted_2 = ["disabled"];
 const _hoisted_3 = ["disabled"];
 const _hoisted_4 = ["disabled"];
 const _hoisted_5 = ["disabled"];
+const _hoisted_6 = {
+  key: 0,
+  class: "dyb-picker-panel__footer-extra"
+};
 const unit = "year";
 const _sfc_main = defineComponent({
   ...{
@@ -333,7 +337,10 @@ const _sfc_main = defineComponent({
               )
             ],
             2
-          )
+          ),
+          _ctx.$slots["dyb-footer-extra"] ? (openBlock(), createElementBlock("div", _hoisted_6, [
+            renderSlot(_ctx.$slots, "dyb-footer-extra")
+          ])) : createCommentVNode("v-if", true)
         ],
         2
       );
