@@ -395,6 +395,9 @@
         {{ t('el.datepicker.confirm') }}
       </el-button>
     </div>
+    <div v-if="$slots['dyb-footer-extra']" class="dyb-picker-panel__footer-extra">
+      <slot name="dyb-footer-extra" />
+    </div>
   </div>
 </template>
 
