@@ -87,3 +87,47 @@ packages/components/component-name/
 
 - Node.js >= 20
 - pnpm >= 10.18
+
+## Deployment (DYB Fork)
+
+This fork is deployed to GitHub for use in DYB projects.
+
+### Deploy Steps
+
+1. Make changes on `master` branch
+2. Build the library:
+   ```bash
+   pnpm install
+   pnpm build
+   ```
+3. Switch to dist branch and update:
+   ```bash
+   git checkout dist
+   cp -r dist/element-plus/* .
+   git add -f es lib dist theme-chalk package.json README.md LICENSE global.d.ts attributes.json tags.json web-types.json
+   git commit -m "chore: build dist for vX.X.X"
+   ```
+4. Create version tag and push:
+   ```bash
+   git tag vX.X.X
+   git push origin dist --tags
+   ```
+5. Update [docs/DYB-changelog.md](./docs/DYB-changelog.md) on `master` branch
+6. Switch back to master:
+   ```bash
+   git checkout master
+   ```
+
+### Usage in External Projects
+
+```json
+{
+  "dependencies": {
+    "element-plus": "github:LiveChoisun/element-plus#v0.0.1"
+  }
+}
+```
+
+### Version History
+
+See [docs/DYB-changelog.md](./docs/DYB-changelog.md) for release history.
