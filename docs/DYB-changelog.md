@@ -17,9 +17,9 @@ This file tracks deployment versions for the DYB fork of Element Plus.
 ## How to Use
 
 ```bash
+# Install latest (recommended)
+pnpm add github:LiveChoisun/element-plus#latest
+
 # Install specific version
 pnpm add github:LiveChoisun/element-plus#v0.0.1
-
-# Install latest from dist branch
-pnpm add github:LiveChoisun/element-plus#dist
 ```

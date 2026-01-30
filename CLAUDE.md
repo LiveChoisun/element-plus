@@ -107,26 +107,30 @@ This fork is deployed to GitHub for use in DYB projects.
    git add -f es lib dist theme-chalk package.json README.md LICENSE global.d.ts attributes.json tags.json web-types.json
    git commit -m "chore: build dist for vX.X.X"
    ```
-4. Create version tag and push:
+4. Create version tag and update latest:
    ```bash
    git tag vX.X.X
+   git tag -f latest
    git push origin dist --tags
+   git push -f origin latest
    ```
-5. Update [docs/DYB-changelog.md](./docs/DYB-changelog.md) on `master` branch
-6. Switch back to master:
+5. Switch back to master and update changelog:
    ```bash
-   git checkout master
+   git checkout -f master
    ```
+6. Update [docs/DYB-changelog.md](./docs/DYB-changelog.md) with new version
 
 ### Usage in External Projects
 
 ```json
 {
   "dependencies": {
-    "element-plus": "github:LiveChoisun/element-plus#v0.0.1"
+    "element-plus": "github:LiveChoisun/element-plus#latest"
   }
 }
 ```
+
+Or specific version: `github:LiveChoisun/element-plus#v0.0.1`
 
 ### Version History
 

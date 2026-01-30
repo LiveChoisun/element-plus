@@ -151,8 +151,8 @@ And thank you to all our backers! 🙏
 This is a forked version for DYB projects. Install from GitHub:
 
 ```bash
-# Latest dist branch
-pnpm add github:LiveChoisun/element-plus#dist
+# Latest version (recommended)
+pnpm add github:LiveChoisun/element-plus#latest
 
 # Specific version
 pnpm add github:LiveChoisun/element-plus#v0.0.1
@@ -162,7 +162,7 @@ Or in package.json:
 ```json
 {
   "dependencies": {
-    "element-plus": "github:LiveChoisun/element-plus#v0.0.1"
+    "element-plus": "github:LiveChoisun/element-plus#latest"
   }
 }
 ```
