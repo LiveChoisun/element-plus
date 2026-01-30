@@ -1,6 +1,6 @@
 import { defineComponent, useSlots, computed, inject, openBlock, createElementBlock, normalizeClass, withDirectives, createElementVNode, mergeProps, isRef, unref, withModifiers, vModelCheckbox, normalizeStyle, renderSlot, createTextVNode, toDisplayString, createCommentVNode } from 'vue';
 import { checkboxGroupContextKey } from './constants.mjs';
-import { checkboxProps, checkboxEmits } from './checkbox.mjs';
+import { checkboxProps, checkboxEmits } from './checkbox2.mjs';
 import _export_sfc from '../../../_virtual/plugin-vue_export-helper.mjs';
 import { useCheckbox } from './composables/use-checkbox.mjs';
 import { useNamespace } from '../../../hooks/use-namespace/index.mjs';

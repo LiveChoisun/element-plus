@@ -1,4 +1,4 @@
-import { buttonProps } from './button.mjs';
+import { buttonProps } from './button2.mjs';
 import { definePropType } from '../../../utils/vue/props/runtime.mjs';
 
 const buttonGroupProps = {

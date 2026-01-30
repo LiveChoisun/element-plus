@@ -4,7 +4,7 @@ import { ElIcon } from '../../icon/index.mjs';
 import { ArrowLeft, ArrowRight, Close } from '@element-plus/icons-vue';
 import useWheel from '../../virtual-list/src/hooks/use-wheel.mjs';
 import { clamp } from 'lodash-unified';
-import TabBar from './tab-bar2.mjs';
+import TabBar from './tab-bar.mjs';
 import { tabsRootContextKey } from './constants.mjs';
 import { buildProps, definePropType } from '../../../utils/vue/props/runtime.mjs';
 import { mutable } from '../../../utils/typescript.mjs';

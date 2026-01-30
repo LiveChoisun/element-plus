@@ -6,7 +6,7 @@ import { mentionProps, mentionEmits, mentionDefaultProps } from './mention2.mjs'
 import { getCursorPosition, getMentionCtx } from './helper.mjs';
 import ElMentionDropdown from './mention-dropdown.mjs';
 import _export_sfc from '../../../_virtual/plugin-vue_export-helper.mjs';
-import { inputProps } from '../../input/src/input2.mjs';
+import { inputProps } from '../../input/src/input.mjs';
 import { useNamespace } from '../../../hooks/use-namespace/index.mjs';
 import { useFormDisabled } from '../../form/src/hooks/use-form-common-props.mjs';
 import { useId } from '../../../hooks/use-id/index.mjs';

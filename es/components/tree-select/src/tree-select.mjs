@@ -7,7 +7,7 @@ import { useTree } from './tree.mjs';
 import CacheOptions from './cache-options.mjs';
 import _export_sfc from '../../../_virtual/plugin-vue_export-helper.mjs';
 import { selectProps } from '../../select/src/select2.mjs';
-import { treeProps } from '../../tree/src/tree.mjs';
+import { treeProps } from '../../tree/src/tree2.mjs';
 
 const _sfc_main = defineComponent({
   name: "ElTreeSelect",

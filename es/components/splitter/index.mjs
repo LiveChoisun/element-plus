@@ -1,6 +1,6 @@
-import Splitter from './src/splitter2.mjs';
+import Splitter from './src/splitter.mjs';
 import SplitPanel from './src/split-panel.mjs';
-export { splitterEmits, splitterProps } from './src/splitter.mjs';
+export { splitterEmits, splitterProps } from './src/splitter2.mjs';
 export { splitterPanelEmits, splitterPanelProps } from './src/split-panel2.mjs';
 import { withInstall, withNoopInstall } from '../../utils/vue/install.mjs';
 

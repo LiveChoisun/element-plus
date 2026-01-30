@@ -1,66 +1,138 @@
-import { useSizeProp } from '../../../hooks/use-size/index.mjs';
-import { useAriaProps } from '../../../hooks/use-aria/index.mjs';
-import { UPDATE_MODEL_EVENT } from '../../../constants/event.mjs';
-import { isString } from '@vue/shared';
-import { isNumber, isBoolean } from '../../../utils/types.mjs';
+import { defineComponent, useSlots, computed, openBlock, createBlock, resolveDynamicComponent, unref, normalizeClass, withCtx, createElementVNode, withDirectives, mergeProps, isRef, withModifiers, vModelCheckbox, createElementBlock, renderSlot, Fragment, createTextVNode, toDisplayString, createCommentVNode } from 'vue';
+import { checkboxProps, checkboxEmits } from './checkbox2.mjs';
+import _export_sfc from '../../../_virtual/plugin-vue_export-helper.mjs';
+import { useCheckbox } from './composables/use-checkbox.mjs';
+import { useNamespace } from '../../../hooks/use-namespace/index.mjs';
 
-const checkboxProps = {
-  modelValue: {
-    type: [Number, String, Boolean],
-    default: void 0
+const _hoisted_1 = ["id", "indeterminate", "name", "tabindex", "disabled"];
+const _sfc_main = defineComponent({
+  ...{
+    name: "ElCheckbox"
   },
-  label: {
-    type: [String, Boolean, Number, Object],
-    default: void 0
-  },
-  value: {
-    type: [String, Boolean, Number, Object],
-    default: void 0
-  },
-  indeterminate: Boolean,
-  disabled: {
-    type: Boolean,
-    default: void 0
-  },
-  checked: Boolean,
-  name: {
-    type: String,
-    default: void 0
-  },
-  trueValue: {
-    type: [String, Number],
-    default: void 0
-  },
-  falseValue: {
-    type: [String, Number],
-    default: void 0
-  },
-  trueLabel: {
-    type: [String, Number],
-    default: void 0
-  },
-  falseLabel: {
-    type: [String, Number],
-    default: void 0
-  },
-  id: {
-    type: String,
-    default: void 0
-  },
-  border: Boolean,
-  size: useSizeProp,
-  tabindex: [String, Number],
-  validateEvent: {
-    type: Boolean,
-    default: true
-  },
-  ariaLabel: String,
-  ...useAriaProps(["ariaControls"])
-};
-const checkboxEmits = {
-  [UPDATE_MODEL_EVENT]: (val) => isString(val) || isNumber(val) || isBoolean(val),
-  change: (val) => isString(val) || isNumber(val) || isBoolean(val)
-};
+  __name: "checkbox",
+  props: checkboxProps,
+  emits: checkboxEmits,
+  setup(__props) {
+    const props = __props;
+    const slots = useSlots();
+    const {
+      inputId,
+      isLabeledByFormItem,
+      isChecked,
+      isDisabled,
+      isFocused,
+      checkboxSize,
+      hasOwnLabel,
+      model,
+      actualValue,
+      handleChange,
+      onClickRoot
+    } = useCheckbox(props, slots);
+    const inputBindings = computed(() => {
+      var _a, _b, _c, _d;
+      if (props.trueValue || props.falseValue || props.trueLabel || props.falseLabel) {
+        return {
+          "true-value": (_b = (_a = props.trueValue) != null ? _a : props.trueLabel) != null ? _b : true,
+          "false-value": (_d = (_c = props.falseValue) != null ? _c : props.falseLabel) != null ? _d : false
+        };
+      }
+      return {
+        value: actualValue.value
+      };
+    });
+    const ns = useNamespace("checkbox");
+    const compKls = computed(() => {
+      return [
+        ns.b(),
+        ns.m(checkboxSize.value),
+        ns.is("disabled", isDisabled.value),
+        ns.is("bordered", props.border),
+        ns.is("checked", isChecked.value)
+      ];
+    });
+    const spanKls = computed(() => {
+      return [
+        ns.e("input"),
+        ns.is("disabled", isDisabled.value),
+        ns.is("checked", isChecked.value),
+        ns.is("indeterminate", props.indeterminate),
+        ns.is("focus", isFocused.value)
+      ];
+    });
+    return (_ctx, _cache) => {
+      return openBlock(), createBlock(resolveDynamicComponent(!unref(hasOwnLabel) && unref(isLabeledByFormItem) ? "span" : "label"), {
+        for: !unref(hasOwnLabel) && unref(isLabeledByFormItem) ? null : unref(inputId),
+        class: normalizeClass(compKls.value),
+        "aria-controls": _ctx.indeterminate ? _ctx.ariaControls : null,
+        "aria-checked": _ctx.indeterminate ? "mixed" : void 0,
+        "aria-label": _ctx.ariaLabel,
+        onClick: unref(onClickRoot)
+      }, {
+        default: withCtx(() => [
+          createElementVNode(
+            "span",
+            {
+              class: normalizeClass(spanKls.value)
+            },
+            [
+              withDirectives(createElementVNode("input", mergeProps({
+                id: unref(inputId),
+                "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => isRef(model) ? model.value = $event : null),
+                class: unref(ns).e("original"),
+                type: "checkbox",
+                indeterminate: _ctx.indeterminate,
+                name: _ctx.name,
+                tabindex: _ctx.tabindex,
+                disabled: unref(isDisabled)
+              }, inputBindings.value, {
+                onChange: _cache[1] || (_cache[1] = (...args) => unref(handleChange) && unref(handleChange)(...args)),
+                onFocus: _cache[2] || (_cache[2] = ($event) => isFocused.value = true),
+                onBlur: _cache[3] || (_cache[3] = ($event) => isFocused.value = false),
+                onClick: _cache[4] || (_cache[4] = withModifiers(() => {
+                }, ["stop"]))
+              }), null, 16, _hoisted_1), [
+                [vModelCheckbox, unref(model)]
+              ]),
+              createElementVNode(
+                "span",
+                {
+                  class: normalizeClass(unref(ns).e("inner"))
+                },
+                null,
+                2
+              )
+            ],
+            2
+          ),
+          unref(hasOwnLabel) ? (openBlock(), createElementBlock(
+            "span",
+            {
+              key: 0,
+              class: normalizeClass(unref(ns).e("label"))
+            },
+            [
+              renderSlot(_ctx.$slots, "default"),
+              !_ctx.$slots.default ? (openBlock(), createElementBlock(
+                Fragment,
+                { key: 0 },
+                [
+                  createTextVNode(
+                    toDisplayString(_ctx.label),
+                    1
+                  )
+                ],
+                64
+              )) : createCommentVNode("v-if", true)
+            ],
+            2
+          )) : createCommentVNode("v-if", true)
+        ]),
+        _: 3
+      }, 8, ["for", "class", "aria-controls", "aria-checked", "aria-label", "onClick"]);
+    };
+  }
+});
+var Checkbox = /* @__PURE__ */ _export_sfc(_sfc_main, [["__file", "C:\\workspace-etc\\element-plus\\packages\\components\\checkbox\\src\\checkbox.vue"]]);
 
-export { checkboxEmits, checkboxProps };
+export { Checkbox as default };
 //# sourceMappingURL=checkbox.mjs.map

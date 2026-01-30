@@ -1,5 +1,5 @@
 import { inject, ref, watch, watchEffect, computed } from 'vue';
-import { colorPickerPanelContextKey } from '../color-picker-panel.mjs';
+import { colorPickerPanelContextKey } from '../color-picker-panel2.mjs';
 import Color from '../utils/color.mjs';
 import { useNamespace } from '../../../../hooks/use-namespace/index.mjs';
 

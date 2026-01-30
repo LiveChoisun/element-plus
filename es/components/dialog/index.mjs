@@ -1,6 +1,6 @@
-import Dialog from './src/dialog2.mjs';
+import Dialog from './src/dialog.mjs';
 export { useDialog } from './src/use-dialog.mjs';
-export { dialogContextKey, dialogEmits, dialogProps } from './src/dialog.mjs';
+export { dialogContextKey, dialogEmits, dialogProps } from './src/dialog2.mjs';
 export { DEFAULT_DIALOG_TRANSITION, dialogInjectionKey } from './src/constants.mjs';
 import { withInstall } from '../../utils/vue/install.mjs';
 

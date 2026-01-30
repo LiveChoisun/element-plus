@@ -2,7 +2,7 @@ import { defineComponent, ref, toRef, computed, provide, readonly, unref, watch,
 import { ElPopper } from '../../popper/index.mjs';
 import { TOOLTIP_INJECTION_KEY } from './constants.mjs';
 import { useTooltipProps, tooltipEmits, useTooltipModelToggle } from './tooltip2.mjs';
-import ElTooltipTrigger from './trigger2.mjs';
+import ElTooltipTrigger from './trigger.mjs';
 import ElTooltipContent from './content.mjs';
 import _export_sfc from '../../../_virtual/plugin-vue_export-helper.mjs';
 import { usePopperContainer } from '../../../hooks/use-popper-container/index.mjs';

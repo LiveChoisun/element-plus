@@ -1,20 +1,109 @@
-import { popperTriggerProps } from '../../popper/src/trigger.mjs';
-import { buildProps, definePropType } from '../../../utils/vue/props/runtime.mjs';
-import { EVENT_CODE } from '../../../constants/aria.mjs';
+import { defineComponent, inject, ref, toRef, openBlock, createBlock, unref, normalizeClass, withCtx, renderSlot, nextTick } from 'vue';
+import '../../popper/index.mjs';
+import { TOOLTIP_INJECTION_KEY } from './constants.mjs';
+import { useTooltipTriggerProps } from './trigger2.mjs';
+import { whenTrigger } from './utils.mjs';
+import _export_sfc from '../../../_virtual/plugin-vue_export-helper.mjs';
+import ElPopperTrigger from '../../popper/src/trigger2.mjs';
+import { composeEventHandlers, getEventCode } from '../../../utils/dom/event.mjs';
+import { useNamespace } from '../../../hooks/use-namespace/index.mjs';
+import { focusElement } from '../../../utils/dom/aria.mjs';
 
-const useTooltipTriggerProps = buildProps({
-  ...popperTriggerProps,
-  disabled: Boolean,
-  trigger: {
-    type: definePropType([String, Array]),
-    default: "hover"
+const _sfc_main = defineComponent({
+  ...{
+    name: "ElTooltipTrigger"
   },
-  triggerKeys: {
-    type: definePropType(Array),
-    default: () => [EVENT_CODE.enter, EVENT_CODE.numpadEnter, EVENT_CODE.space]
-  },
-  focusOnTarget: Boolean
+  __name: "trigger",
+  props: useTooltipTriggerProps,
+  setup(__props, { expose: __expose }) {
+    const props = __props;
+    const ns = useNamespace("tooltip");
+    const { controlled, id, open, onOpen, onClose, onToggle } = inject(
+      TOOLTIP_INJECTION_KEY,
+      void 0
+    );
+    const triggerRef = ref(null);
+    const stopWhenControlledOrDisabled = () => {
+      if (unref(controlled) || props.disabled) {
+        return true;
+      }
+    };
+    const trigger = toRef(props, "trigger");
+    const onMouseenter = composeEventHandlers(
+      stopWhenControlledOrDisabled,
+      whenTrigger(trigger, "hover", (e) => {
+        onOpen(e);
+        if (props.focusOnTarget && e.target) {
+          nextTick(() => {
+            focusElement(e.target, { preventScroll: true });
+          });
+        }
+      })
+    );
+    const onMouseleave = composeEventHandlers(
+      stopWhenControlledOrDisabled,
+      whenTrigger(trigger, "hover", onClose)
+    );
+    const onClick = composeEventHandlers(
+      stopWhenControlledOrDisabled,
+      whenTrigger(trigger, "click", (e) => {
+        if (e.button === 0) {
+          onToggle(e);
+        }
+      })
+    );
+    const onFocus = composeEventHandlers(
+      stopWhenControlledOrDisabled,
+      whenTrigger(trigger, "focus", onOpen)
+    );
+    const onBlur = composeEventHandlers(
+      stopWhenControlledOrDisabled,
+      whenTrigger(trigger, "focus", onClose)
+    );
+    const onContextMenu = composeEventHandlers(
+      stopWhenControlledOrDisabled,
+      whenTrigger(trigger, "contextmenu", (e) => {
+        e.preventDefault();
+        onToggle(e);
+      })
+    );
+    const onKeydown = composeEventHandlers(
+      stopWhenControlledOrDisabled,
+      (e) => {
+        const code = getEventCode(e);
+        if (props.triggerKeys.includes(code)) {
+          e.preventDefault();
+          onToggle(e);
+        }
+      }
+    );
+    __expose({
+      triggerRef
+    });
+    return (_ctx, _cache) => {
+      return openBlock(), createBlock(unref(ElPopperTrigger), {
+        id: unref(id),
+        "virtual-ref": _ctx.virtualRef,
+        open: unref(open),
+        "virtual-triggering": _ctx.virtualTriggering,
+        class: normalizeClass(unref(ns).e("trigger")),
+        onBlur: unref(onBlur),
+        onClick: unref(onClick),
+        onContextmenu: unref(onContextMenu),
+        onFocus: unref(onFocus),
+        onMouseenter: unref(onMouseenter),
+        onMouseleave: unref(onMouseleave),
+        onKeydown: unref(onKeydown)
+      }, {
+        default: withCtx(() => [
+          renderSlot(_ctx.$slots, "default")
+        ]),
+        _: 3
+      }, 8, ["id", "virtual-ref", "open", "virtual-triggering", "class", "onBlur", "onClick", "onContextmenu", "onFocus", "onMouseenter", "onMouseleave", "onKeydown"]);
+    };
+  }
 });
+var ElTooltipTrigger = /* @__PURE__ */ _export_sfc(_sfc_main, [["__file", "C:\\workspace-etc\\element-plus\\packages\\components\\tooltip\\src\\trigger.vue"]]);
 
-export { useTooltipTriggerProps };
+export { ElTooltipTrigger as default };
 //# sourceMappingURL=trigger.mjs.map

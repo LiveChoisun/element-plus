@@ -1,5 +1,5 @@
 import { defineComponent, useSlots, provide, computed, openBlock, createElementBlock, normalizeClass, unref, createElementVNode, renderSlot, createTextVNode, toDisplayString, createCommentVNode, Fragment, renderList, createBlock } from 'vue';
-import ElDescriptionsRow from './descriptions-row2.mjs';
+import ElDescriptionsRow from './descriptions-row.mjs';
 import { descriptionsKey } from './token.mjs';
 import { descriptionProps } from './description2.mjs';
 import { COMPONENT_NAME } from './constants.mjs';
