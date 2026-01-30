@@ -1,126 +1,126 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+이 파일은 Claude Code (claude.ai/code)가 이 저장소에서 작업할 때 참고하는 가이드입니다.
 
-## Project Overview
+## 프로젝트 개요
 
-Element Plus is a Vue 3 component library built with TypeScript and the Composition API. It's a monorepo managed with pnpm workspaces.
+Element Plus는 TypeScript와 Composition API로 작성된 Vue 3 컴포넌트 라이브러리입니다. pnpm 워크스페이스로 관리되는 모노레포 구조입니다.
 
-## Common Commands
+## 주요 명령어
 
 ```bash
-pnpm install              # Install dependencies (runs stub and gen:version automatically)
-pnpm dev                  # Run playground dev server for testing components
-pnpm test                 # Run unit tests with Vitest
-pnpm test -- button       # Run tests for a specific component
-pnpm test:coverage        # Run tests with coverage report
-pnpm lint                 # Run ESLint
-pnpm lint:fix             # Auto-fix linting issues
-pnpm format               # Format code with Prettier
-pnpm typecheck            # Run all TypeScript type checks
-pnpm build                # Build the entire library (Gulp-based)
-pnpm build:theme          # Build theme-chalk separately
-pnpm docs:dev             # Run documentation site locally
-pnpm gen                  # Generate new component from template (interactive bash script)
-pnpm cz                   # Interactive commit message generator (commitizen)
+pnpm install              # 의존성 설치 (stub, gen:version 자동 실행)
+pnpm dev                  # 플레이그라운드 개발 서버 실행
+pnpm test                 # Vitest로 단위 테스트 실행
+pnpm test -- button       # 특정 컴포넌트 테스트 실행
+pnpm test:coverage        # 커버리지 포함 테스트 실행
+pnpm lint                 # ESLint 실행
+pnpm lint:fix             # 린트 문제 자동 수정
+pnpm format               # Prettier로 코드 포맷팅
+pnpm typecheck            # TypeScript 타입 체크 전체 실행
+pnpm build                # 라이브러리 전체 빌드 (Gulp 기반)
+pnpm build:theme          # theme-chalk만 별도 빌드
+pnpm docs:dev             # 문서 사이트 로컬 실행
+pnpm gen                  # 새 컴포넌트 템플릿 생성 (대화형 bash 스크립트)
+pnpm cz                   # 대화형 커밋 메시지 생성 (commitizen)
 ```
 
-## Architecture
+## 아키텍처
 
-### Monorepo Structure
+### 모노레포 구조
 
-- **packages/components/** - 124+ UI components, each in its own directory
-- **packages/hooks/** - Vue 3 Composition API hooks (shared logic)
-- **packages/utils/** - Utility functions shared across components
-- **packages/directives/** - Vue directives (click-outside, mousewheel, etc.)
-- **packages/constants/** - Shared constants (aria, dates, events, keys, sizes)
-- **packages/locale/** - i18n translations (40+ languages)
-- **packages/theme-chalk/** - SCSS-based theming system
-- **packages/element-plus/** - Main library entry point
-- **internal/build/** - Gulp + Rollup build toolchain
-- **play/** - Vite-based component playground for development
-- **docs/** - VitePress documentation site
+- **packages/components/** - 124개 이상의 UI 컴포넌트, 각각 별도 디렉토리
+- **packages/hooks/** - Vue 3 Composition API 훅 (공유 로직)
+- **packages/utils/** - 컴포넌트 간 공유 유틸리티 함수
+- **packages/directives/** - Vue 디렉티브 (click-outside, mousewheel 등)
+- **packages/constants/** - 공유 상수 (aria, dates, events, keys, sizes)
+- **packages/locale/** - i18n 번역 (40개 이상 언어 지원)
+- **packages/theme-chalk/** - SCSS 기반 테마 시스템
+- **packages/element-plus/** - 메인 라이브러리 진입점
+- **internal/build/** - Gulp + Rollup 빌드 도구
+- **play/** - Vite 기반 컴포넌트 플레이그라운드
+- **docs/** - VitePress 문서 사이트
 
-### Component Structure Pattern
+### 컴포넌트 구조 패턴
 
-Each component follows this structure:
+각 컴포넌트는 다음 구조를 따릅니다:
 ```
 packages/components/component-name/
-├── index.ts              # Exports with withInstall() wrapper
+├── index.ts              # withInstall() 래퍼로 내보내기
 ├── src/
 │   ├── component.vue     # Vue SFC
-│   ├── component.ts      # Props/emits definitions
-│   ├── use-component.ts  # Composition hook
-│   └── instance.ts       # Type exports
-├── __tests__/            # Unit tests
-└── style/                # SCSS styles
+│   ├── component.ts      # Props/emits 정의
+│   ├── use-component.ts  # Composition 훅
+│   └── instance.ts       # 타입 내보내기
+├── __tests__/            # 단위 테스트
+└── style/                # SCSS 스타일
 ```
 
-### Key Patterns
+### 주요 패턴
 
-- **withInstall()** - Wrapper from `@element-plus/utils` that adds `.install()` method for `app.use()` registration
-- **useNamespace()** - Hook for BEM-style class name generation
-- **buildProps()** - Utility for defining component props with TypeScript support
-- **definePropType()** - Helper for complex prop type definitions
+- **withInstall()** - `@element-plus/utils`의 래퍼, `app.use()` 등록을 위한 `.install()` 메서드 추가
+- **useNamespace()** - BEM 스타일 클래스명 생성 훅
+- **buildProps()** - TypeScript 지원 컴포넌트 props 정의 유틸리티
+- **definePropType()** - 복잡한 prop 타입 정의 헬퍼
 
-### Build System
+### 빌드 시스템
 
-- **Gulp** orchestrates the build pipeline (`internal/build/gulpfile.ts`)
-- **Rollup** bundles to ESM (`es/`) and CommonJS (`lib/`)
-- **SCSS** compiles theme-chalk styles
-- Output goes to `dist/` directory
+- **Gulp** - 빌드 파이프라인 오케스트레이션 (`internal/build/gulpfile.ts`)
+- **Rollup** - ESM (`es/`) 및 CommonJS (`lib/`) 번들링
+- **SCSS** - theme-chalk 스타일 컴파일
+- 출력 위치: `dist/` 디렉토리
 
-### Testing
+### 테스트
 
-- **Vitest** with jsdom environment
-- Test files in `__tests__/` directories alongside components
-- Vue Test Utils for component mounting
-- Coverage excludes: play/, lang/, style/, scripts/, ssr-testing/
+- **Vitest** - jsdom 환경 사용
+- 테스트 파일은 컴포넌트와 함께 `__tests__/` 디렉토리에 위치
+- Vue Test Utils로 컴포넌트 마운팅
+- 커버리지 제외: play/, lang/, style/, scripts/, ssr-testing/
 
-## Code Style
+## 코드 스타일
 
-- No semicolons, single quotes, ES5 trailing commas (Prettier)
-- Commit format: `type(scope): description` (conventional commits)
-- Pre-commit hooks run ESLint, Prettier via lint-staged
+- 세미콜론 없음, 작은따옴표, ES5 trailing comma (Prettier)
+- 커밋 형식: `type(scope): description` (conventional commits)
+- Pre-commit 훅으로 ESLint, Prettier 실행 (lint-staged)
 
-## Prerequisites
+## 필수 조건
 
 - Node.js >= 20
 - pnpm >= 10.18
 
-## Deployment (DYB Fork)
+## 배포 (DYB Fork)
 
-This fork is deployed to GitHub for use in DYB projects.
+이 포크는 DYB 프로젝트에서 사용하기 위해 GitHub에 배포됩니다.
 
-### Deploy Steps
+### 배포 단계
 
-1. Make changes on `master` branch
-2. Build the library:
+1. `master` 브랜치에서 수정 작업
+2. 라이브러리 빌드:
    ```bash
    pnpm install
    pnpm build
    ```
-3. Switch to dist branch and update:
+3. dist 브랜치로 전환 후 업데이트:
    ```bash
    git checkout dist
    cp -r dist/element-plus/* .
    git add -f es lib dist theme-chalk package.json README.md LICENSE global.d.ts attributes.json tags.json web-types.json
    git commit -m "chore: build dist for vX.X.X"
    ```
-4. Create version tag and update latest:
+4. 버전 태그 생성 및 latest 업데이트:
    ```bash
    git tag vX.X.X
    git tag -f latest
    git push origin dist --tags
    git push -f origin latest
    ```
-5. Switch back to master and update changelog:
+5. master로 복귀 후 changelog 업데이트:
    ```bash
    git checkout -f master
    ```
-6. Update [docs/DYB-changelog.md](./docs/DYB-changelog.md) with new version
+6. [docs/DYB-changelog.md](./docs/DYB-changelog.md)에 새 버전 추가
 
-### Usage in External Projects
+### 외부 프로젝트에서 사용
 
 ```json
 {
@@ -130,8 +130,8 @@ This fork is deployed to GitHub for use in DYB projects.
 }
 ```
 
-Or specific version: `github:LiveChoisun/element-plus#v0.0.1`
+특정 버전 지정: `github:LiveChoisun/element-plus#v0.0.1`
 
-### Version History
+### 버전 히스토리
 
-See [docs/DYB-changelog.md](./docs/DYB-changelog.md) for release history.
+릴리스 이력은 [docs/DYB-changelog.md](./docs/DYB-changelog.md) 참고.
