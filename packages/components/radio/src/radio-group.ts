@@ -1,0 +1,97 @@
+import { buildProps, definePropType } from '@element-plus/utils'
+import { useAriaProps, useSizeProp } from '@element-plus/hooks'
+import { radioEmits } from './radio'
+
+import type { RadioPropsPublic } from './radio'
+import type { ExtractPropTypes, ExtractPublicPropTypes } from 'vue'
+import type RadioGroup from './radio-group.vue'
+
+export const radioGroupProps = buildProps({
+  /**
+   * @description native `id` attribute
+   */
+  id: {
+    type: String,
+    default: undefined,
+  },
+  /**
+   * @description the size of radio buttons or bordered radios
+   */
+  size: useSizeProp,
+  /**
+   * @description whether the nesting radios are disabled
+   */
+  disabled: {
+    type: Boolean,
+    default: undefined,
+  },
+  /**
+   * @description binding value
+   */
+  modelValue: {
+    type: [String, Number, Boolean],
+    default: undefined,
+  },
+  /**
+   * @description border and background color when button is active
+   */
+  fill: {
+    type: String,
+    default: '',
+  },
+  /**
+   * @description font color when button is active
+   */
+  textColor: {
+    type: String,
+    default: '',
+  },
+  /**
+   * @description native `name` attribute
+   */
+  name: {
+    type: String,
+    default: undefined,
+  },
+  /**
+   * @description whether to trigger form validation
+   */
+  validateEvent: {
+    type: Boolean,
+    default: true,
+  },
+  options: {
+    type: definePropType<radioOption[]>(Array),
+  },
+  props: {
+    type: definePropType<radioOptionProp>(Object),
+    default: () => radioDefaultProps,
+  },
+  type: {
+    type: String,
+    values: ['radio', 'button'] as const,
+    default: 'radio',
+  },
+  ...useAriaProps(['ariaLabel']),
+} as const)
+export type RadioGroupProps = ExtractPropTypes<typeof radioGroupProps>
+export type RadioGroupPropsPublic = ExtractPublicPropTypes<
+  typeof radioGroupProps
+>
+
+export const radioGroupEmits = radioEmits
+export type RadioGroupEmits = typeof radioGroupEmits
+export type RadioGroupInstance = InstanceType<typeof RadioGroup> & unknown
+
+export type radioOption = RadioPropsPublic & Record<string, any>
+
+export const radioDefaultProps: Required<radioOptionProp> = {
+  label: 'label',
+  value: 'value',
+  disabled: 'disabled',
+}
+export type radioOptionProp = {
+  value?: string
+  label?: string
+  disabled?: string
+}
